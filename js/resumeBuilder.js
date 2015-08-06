@@ -1,8 +1,4 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
-
-var skills = ["HTML", "CSS", "Python", "Django", "Java", "Android Development", "JavaScript", "Jquery"]
+var skills = ["HTML", "CSS", "Python", "Django", "Java", "Android Development", "JavaScript", "Jquery"];
 
 var bio = {
 	"name": "Adhyan",
@@ -33,31 +29,21 @@ var work = {
 var education = {
 	"schools": [
 		{
-			"name": "Jamia Millia Islamia",
+			"name": "Jamia Millia Islamia, New Delhi - India",
 			"location": "New Delhi",
-			"majors": ["CS"]
-		},
-		{
-			"name": "City Montessori School",
-			"location": "Lucknow"
-		},
-		{
-			"name": "GMSSS",
-			"location": "Chandigarh"
+			"degree": "B.Tech in CS",
+			"majors": [],
+			"dates": 2017,
+			"url": "jmi.ac.in"
 		}
 	],
 	"onlineCourses": [
 		{
-			"title": "Python Django Course",
+			"title": "The Complete Web Developer Course",
 			"school": "Udemy",
-			"dates": 2014
+			"dates": 2015,
+			"url": "https://www.udemy.com/complete-web-developer-course/learn/",
 		},
-		{
-			"title": "Web Development Course",
-			"school": "Udemy",
-			"dates": "2015"	
-		}
-
 	]
 };
 
@@ -72,8 +58,6 @@ var projects = {
 	]
 };
 
-
-
 var name =  "Adhyan Srivastava";
 var formattedBioPic = HTMLbioPic.replace("%data%", "images/adhyan.jpg");
 var formattedName = HTMLheaderName.replace("%data%", name);
@@ -84,7 +68,6 @@ $("#header").append(formattedBioPic);
 $("#header").append(formattedName);
 $("#header").append(formattedRole);
 $("#header").append(formattedWelcomeMessage);
-
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -105,15 +88,15 @@ function displayWork () {
 		var formattedEmployerTitle = formattedWork + formattedTitle;
 		var formattedTime = HTMLworkDates.replace("%data%", work.jobs[i].time)
 
-		$(".work-entry").append(formattedEmployerTitle);
-		$(".work-entry").append(formattedTime);
-		$(".work-entry").append(formattedDescription);
+		$(".work-entry:last").append(formattedEmployerTitle);
+		$(".work-entry:last").append(formattedTime);
+		$(".work-entry:last").append(formattedDescription);
 	}
 }
 
 displayWork();
 
-$("#main").append(internationalizeButton);
+// $("#main").append(internationalizeButton);
 
 function inName() {
 	var list = name.split(" ");
@@ -129,8 +112,6 @@ projects.display = function () {
 
 	for (var i in projects.projects) {
 
-
-		console.log("Adhyan");
 		$("#projects").append(HTMLprojectStart);
 
 		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
@@ -148,3 +129,56 @@ projects.display = function () {
 projects.display();
 
 $("#map-div").append(googleMap);
+
+education.display = function() {
+	for (var i in education.schools) {
+		$("#education").append(HTMLschoolStart);
+
+		var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
+		var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
+
+		$(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
+		$(".education-entry:last").append(formattedSchoolDates);
+	}
+
+	$("#education:last").append(HTMLonlineClasses);
+
+	for (var i in education.onlineCourses) {
+
+		$("#education").append(HTMLschoolStart);
+
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
+		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+		var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
+		var formattedOnlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+
+		$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+		$(".education-entry:last").append(formattedDate);
+		$(".education-entry:last").append(formattedOnlineUrl);
+
+	}
+}
+
+education.display();
+
+var formattedmobile = HTMLmobile.replace("%data%", 123456789);
+var formattedEmail = HTMLemail.replace("%data%", "adhyan2095@gmail.com");
+var formattedTwitter  = HTMLtwitter.replace("%data%", "@tech_adhyan");
+var formattedGithub = HTMLgithub.replace("%data%", "ad-os");
+var formattedLocation = HTMLlocation.replace("%data%", "Noida");
+
+$("#footerContacts").append(formattedmobile); 
+
+$("#footerContacts").append(formattedEmail);
+
+$("#footerContacts").append(formattedTwitter);
+
+$("#footerContacts").append(formattedGithub);
+
+$("#footerContacts").append(formattedLocation);
+
+
+$(function(){
+	$('.button-collapse').sideNav();
+});
