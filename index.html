@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href="css/style.css" rel="stylesheet">
 </head>
@@ -21,7 +22,7 @@
 			<div class="row">
 				<div class="col s12 center"><a href="https://github.com/ad-os"><i class="fa fa-github-alt fa-3x"></i></a></div>
 				<div class="col s12 center"><a href="https://www.linkedin.com/profile/view?id=365199995&amp;trk=nav_responsive_tab_profile_pic"><i class="fa fa-linkedin fa-3x"></i></a></div>
-				<div class="col s12 center"><a href=""><i class="fa fa-twitter fa-3x"></i></a></div>
+				<div class="col s12 center"><a href="https://twitter.com/tech_adhyan"><i class="fa fa-twitter fa-3x"></i></a></div>
 			</div>
 		</div>
 	</ul>
@@ -44,11 +45,63 @@
 		<div style="clear: both;"></div>
 		<div class="row">
 			<div class="col s12">
-				<div class="card blue-grey">
+				<div class="card project-heading">
 					<div class="card-content white-text">
 						<span class="card-title">Projects</span>
-						<div id="projects">
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m4 l4">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="http://placehold.it/200x200">
+					</div>
+					<div class="card-content">
+						<div id="projects0">
 						</div>
+						<span class="card-title activator grey-text text-darken-4">
+							<i class="material-icons right">more_vert</i>
+						</span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Project Description<i class="material-icons right">close</i></span>
+						<p>Here is some more information about this product that is only revealed once clicked on.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m4 l4">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="http://placehold.it/200x200">
+					</div>
+					<div class="card-content">
+						<div id="projects1">
+						</div>
+						<span class="card-title activator grey-text text-darken-4">
+							<i class="material-icons right">more_vert</i>
+						</span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Project Description<i class="material-icons right">close</i></span>
+						<p>Here is some more information about this product that is only revealed once clicked on.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m4 l4">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="http://placehold.it/200x200">
+					</div>
+					<div class="card-content">
+						<div id="projects2">
+						</div>
+						<span class="card-title activator grey-text text-darken-4">
+							<i class="material-icons right">more_vert</i>
+						</span>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Project Description<i class="material-icons right">close</i></span>
+						<p>Here is some more information about this product that is only revealed once clicked on.</p>
 					</div>
 				</div>
 			</div>
@@ -105,6 +158,7 @@
 			document.getElementById('map-div').style.display = 'none';
 		}
 		$(".button-collapse").sideNav();
+		$(".ul-section").css("height", $("#header").outerHeight());
 	</script>
 </body>
 </html>

@@ -10,20 +10,9 @@ var bio = {
 		"twitter": "@tech_adhyan",
 		"location": "Noida"
 	},
-	"picture URL": "images/adhyan.jpg",
-	"welcome Message": "Keep Trying!, Keep Learning! and follow your dreams.",
+	"welcomeMessage": "Keep Trying! Keep Learning! and follow your dreams.",
+	"biopic": "images/adhyan.jpg",
 	"skills": skills
-};
-
-var work = {
-	jobs: [
-		{
-			"position": "Student",
-			"employer": "Jamia Millia Islamia",
-			"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-			"time": "2013 - May 2017"
-		},
-	]
 };
 
 var education = {
@@ -41,9 +30,27 @@ var education = {
 		{
 			"title": "The Complete Web Developer Course",
 			"school": "Udemy",
-			"dates": 2015,
+			"date": 2015,
 			"url": "https://www.udemy.com/complete-web-developer-course/learn/",
 		},
+		{
+			"title": "6.00.1x: Introduction to Computer Science and Programming Using Python",
+			"school": "Edx",
+			"date": 2014,
+			"url": "https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x7",
+		}
+	]
+};
+
+var work = {
+	jobs: [
+		{
+			"employer": "Jamia Millia Islamia",
+			"title": "Student",
+			"location": "New Delhi",
+			"dates": "2013 - May 2017",
+			"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+		}
 	]
 };
 
@@ -51,42 +58,59 @@ var projects = {
 	"projects": [
 		{
 			"title": "A test",
-			"date": 2015,
-			"description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+			"dates": 2015,
+			"description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+			"images": ["images/test.png", "images/test1.png"]
+		},
+		{
+			"title": "A test",
+			"dates": 2015,
+			"description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+			"images": ["images/test.png", "images/test1.png"]
+		},
+		{
+			"title": "A test",
+			"dates": 2015,
+			"description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
 			"images": ["images/test.png", "images/test1.png"]
 		}
 	]
 };
 
-var name =  "Adhyan Srivastava";
-var formattedBioPic = HTMLbioPic.replace("%data%", "images/adhyan.jpg");
-var formattedName = HTMLheaderName.replace("%data%", name);
-var formattedRole = HTMLheaderRole.replace("%data%", "Software Engineer");
-var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", "Keep Learning!");
+bio.display = function() {
 
-$("#header").append(formattedBioPic);
-$("#header").append(formattedName);
-$("#header").append(formattedRole);
-$("#header").append(formattedWelcomeMessage);
+	var name =  bio.name;
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-if (bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-	for (var i in bio.skills) {
-		var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
-		$("#skills").append(formattedSkill); 
+	$("#header").append(formattedBioPic);
+	$("#header").append(formattedName);
+	$("#header").append(formattedRole);
+	$("#header").append(formattedWelcomeMessage);
+
+	if (bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
+		for (var i in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+			$("#skills").append(formattedSkill); 
+		}	
 	}
 }
 
-function displayWork () {
+bio.display();
 
-	for (i in work.jobs) {
+work.display = function () {
+
+	for (var i in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 
 		var formattedWork = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].position);
+		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
 		var formattedEmployerTitle = formattedWork + formattedTitle;
-		var formattedTime = HTMLworkDates.replace("%data%", work.jobs[i].time)
+		var formattedTime = HTMLworkDates.replace("%data%", work.jobs[i].dates)
 
 		$(".work-entry:last").append(formattedEmployerTitle);
 		$(".work-entry:last").append(formattedTime);
@@ -94,9 +118,7 @@ function displayWork () {
 	}
 }
 
-displayWork();
-
-// $("#main").append(internationalizeButton);
+work.display();
 
 function inName() {
 	var list = name.split(" ");
@@ -108,29 +130,30 @@ function inName() {
 	return finalName;
 }
 
-projects.display = function () {
+projects.display = function() {
 
 	for (var i in projects.projects) {
 
-		$("#projects").append(HTMLprojectStart);
+		$("#projects" + (i)).append(HTMLprojectStart);
 
 		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
 
-		var formattedTime = HTMLprojectDates.replace("%data%", projects.projects[i].date);
+		var formattedTime = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
 
 		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
 
-		$(".project-entry").append(formattedTitle);
-		$(".project-entry").append(formattedTime);
-		$(".project-entry").append(formattedDescription);
+		$(".project-entry:last").append(formattedTitle);
+		$(".project-entry:last").append(formattedTime);
+		$(".project-entry:last").append(formattedDescription);
 	}
 }
 
 projects.display();
 
-$("#map-div").append(googleMap);
-
 education.display = function() {
+
+	$("#map-div").append(googleMap);
+
 	for (var i in education.schools) {
 		$("#education").append(HTMLschoolStart);
 
@@ -150,7 +173,7 @@ education.display = function() {
 
 		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
 		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
-		var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
+		var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[i].date);
 		var formattedOnlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
 
 		$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
@@ -177,8 +200,3 @@ $("#footerContacts").append(formattedTwitter);
 $("#footerContacts").append(formattedGithub);
 
 $("#footerContacts").append(formattedLocation);
-
-
-$(function(){
-	$('.button-collapse').sideNav();
-});
