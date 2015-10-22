@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
@@ -11,6 +12,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -54,54 +56,77 @@
 			<div class="col s12 m4 l4">
 				<div class="card">
 					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="http://placehold.it/200x200">
+						<img class="project0-Image activator" src="images/portfolio-fend.png">
 					</div>
 					<div class="card-content">
 						<div id="projects0">
 						</div>
-						<span class="card-title activator grey-text text-darken-4">
-							<i class="material-icons right">more_vert</i>
-						</span>
 					</div>
 					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Project Description<i class="material-icons right">close</i></span>
-						<p>Here is some more information about this product that is only revealed once clicked on.</p>
+						<span class="project1-Image card-title grey-text text-darken-4">Project Description<i class="material-icons right">close</i></span>
+						<p class="project0-desc">Here is some more information about this product that is only revealed once clicked on.</p>
 					</div>
 				</div>
 			</div>
 			<div class="col s12 m4 l4">
 				<div class="card">
 					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="http://placehold.it/200x200">
+						<img class="activator" src="images/neighborhood-map.png">
 					</div>
 					<div class="card-content">
 						<div id="projects1">
 						</div>
-						<span class="card-title activator grey-text text-darken-4">
-							<i class="material-icons right">more_vert</i>
-						</span>
 					</div>
 					<div class="card-reveal">
 						<span class="card-title grey-text text-darken-4">Project Description<i class="material-icons right">close</i></span>
-						<p>Here is some more information about this product that is only revealed once clicked on.</p>
+						<p class="project1-desc">Here is some more information about this product that is only revealed once clicked on.</p>
 					</div>
 				</div>
 			</div>
 			<div class="col s12 m4 l4">
 				<div class="card">
 					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="http://placehold.it/200x200">
+						<img class="activator" src="images/ArcadeGame.png">
 					</div>
 					<div class="card-content">
 						<div id="projects2">
 						</div>
-						<span class="card-title activator grey-text text-darken-4">
-							<i class="material-icons right">more_vert</i>
-						</span>
 					</div>
 					<div class="card-reveal">
 						<span class="card-title grey-text text-darken-4">Project Description<i class="material-icons right">close</i></span>
-						<p>Here is some more information about this product that is only revealed once clicked on.</p>
+						<p class="project2-desc">Here is some more information about this product that is only revealed once clicked on.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m4 l4">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/feedReader.png">
+					</div>
+					<div class="card-content">
+						<div id="projects3">
+						</div>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Project Description<i class="material-icons right">close</i></span>
+						<p class="project3-desc">Here is some more information about this product that is only revealed once clicked on.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 m4 l4">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="images/portfolioTemplate.png">
+					</div>
+					<div class="card-content">
+						<div id="projects4">
+						</div>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Project Description<i class="material-icons right">close</i></span>
+						<p class="project4-desc">Here is some more information about this product that is only revealed once clicked on.</p>
 					</div>
 				</div>
 			</div>
@@ -130,8 +155,8 @@
 		</div>		
 		<div id="lets-connect" class="dark-gray">
 			<h2 class="orange center-text">Let's Connect</h2>
-				<ul id="footerContacts" class="flex-box">
-			</ul>
+				<ul id="footerContacts" class="flex-box"></ul>
+				<p>*Do check my linked in to get knowledge of to which level I know my skills.	</p>
 		</div>
 	</div>
 	<script src="js/resumeBuilder.js"></script>
@@ -157,8 +182,8 @@
 		if(document.getElementById('map') === null) {
 			document.getElementById('map-div').style.display = 'none';
 		}
+		$(".ul-section").css("height", $("#header").outerHeight() + 21);
 		$(".button-collapse").sideNav();
-		$(".ul-section").css("height", $("#header").outerHeight());
 	</script>
 </body>
 </html>
