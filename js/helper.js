@@ -23,8 +23,10 @@ var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
+var HTMLprojectTitle = '<span class="card-title activator grey-text text-darken-4">%data%<i class="material-icons right">more_vert</i></span>';
+var HTMLprojectLink = '<p><a href="#" target="_blank">Live Project Link</a></p>';
+var HTMLgithubLink = '<p><a class="color-blue" href="#" target="_blank">@github</a></p>'
+var HTMLprojectDates = '<p class="date-text">%data%</p>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
